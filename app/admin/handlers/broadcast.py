@@ -66,7 +66,8 @@ async def broadcast_button(message: Message, state: FSMContext) -> None:
         InlineKeyboardButton(text="✅ Yuborish", callback_data="adm:broadcast_confirm"),
         InlineKeyboardButton(text="❌ Bekor qilish", callback_data="adm:home"),
     ]])
-    await message.answer(f"📨 Tayyor. Yuborilsinmi?\n\nMatn: {data.get('text') or '(yo\u02bbq)'}", reply_markup=kb)
+ content_preview = data.get("text") or "(yo'q)"
+    await message.answer(f"📨 Tayyor. Yuborilsinmi?\n\nMatn: {content_preview}", reply_markup=kb)   
 
 
 @router.callback_query(AdminBroadcastStates.confirm, F.data == "adm:broadcast_confirm")
