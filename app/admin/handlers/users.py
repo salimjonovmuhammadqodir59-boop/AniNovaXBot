@@ -50,7 +50,8 @@ async def show_user_card(message: Message, session: AsyncSession, user: User) ->
         f"🕓 Oxirgi faollik: {user.last_active_at:%d.%m.%Y %H:%M}\n"
         f"👀 Ko'rilgan videolar: {user.total_views}\n"
         f"🪙 Sarflagan tanga: {user.total_spent_coins}\n"
-        f"🚫 Bloklangan: {'Ha' if user.is_banned else 'Yo\u02bbq'}"
+        banned_text = "Ha" if user.is_banned else "Yo'q"
+    f"🚫 Bloklangan: {banned_text}"
     )
     ban_btn = ("🔓 Unban", f"adm:unban:{user.id}") if user.is_banned else ("🚫 Ban", f"adm:ban:{user.id}")
     kb = InlineKeyboardMarkup(inline_keyboard=[
