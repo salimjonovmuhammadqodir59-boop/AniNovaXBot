@@ -40,6 +40,7 @@ async def find_user(message: Message, state: FSMContext, session: AsyncSession) 
 async def show_user_card(message: Message, session: AsyncSession, user: User) -> None:
     referrals = await count_referrals(session, user.id)
     vip_line = f"Faol ({vip_days_left(user)} kun)" if is_vip_active(user) else "Faol emas"
+    banned_text = "Ha" if user.is_banned else "Yo'q"
     text = (
         f"👤 @{user.username or '—'}\n"
         f"🆔 ID: {user.id}\n"
@@ -50,8 +51,7 @@ async def show_user_card(message: Message, session: AsyncSession, user: User) ->
         f"🕓 Oxirgi faollik: {user.last_active_at:%d.%m.%Y %H:%M}\n"
         f"👀 Ko'rilgan videolar: {user.total_views}\n"
         f"🪙 Sarflagan tanga: {user.total_spent_coins}\n"
-        banned_text = "Ha" if user.is_banned else "Yo'q"
-    f"🚫 Bloklangan: {banned_text}"
+        f"🚫 Bloklangan: {banned_text}"
     )
     ban_btn = ("🔓 Unban", f"adm:unban:{user.id}") if user.is_banned else ("🚫 Ban", f"adm:ban:{user.id}")
     kb = InlineKeyboardMarkup(inline_keyboard=[
