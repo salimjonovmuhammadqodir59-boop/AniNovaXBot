@@ -66,8 +66,8 @@ async def broadcast_button(message: Message, state: FSMContext) -> None:
         InlineKeyboardButton(text="✅ Yuborish", callback_data="adm:broadcast_confirm"),
         InlineKeyboardButton(text="❌ Bekor qilish", callback_data="adm:home"),
     ]])
- content_preview = data.get("text") or "(yo'q)"
-    await message.answer(f"📨 Tayyor. Yuborilsinmi?\n\nMatn: {content_preview}", reply_markup=kb)   
+    content_preview = data.get("text") or "(yo'q)"
+    await message.answer(f"📨 Tayyor. Yuborilsinmi?\n\nMatn: {content_preview}", reply_markup=kb)
 
 
 @router.callback_query(AdminBroadcastStates.confirm, F.data == "adm:broadcast_confirm")
@@ -123,7 +123,7 @@ async def broadcast_confirm(callback: CallbackQuery, state: FSMContext, session:
                 await progress_msg.edit_text(f"📨 Yuborilmoqda...\n{bar} {pct}%")
             except Exception:
                 pass
-        await asyncio.sleep(0.05)  # basic flood protection
+        await asyncio.sleep(0.05)
 
     record.sent_count, record.failed_count, record.status = sent, failed, BroadcastStatus.DONE
     await session.commit()
