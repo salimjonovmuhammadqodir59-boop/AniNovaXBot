@@ -36,14 +36,17 @@ async def cmd_start(message: Message, command: CommandObject, session: AsyncSess
 
 async def send_main_panel(message: Message, db_user: User) -> None:
     text = greeting_text(db_user)
-    # Banner is optional -- admin uploads it once via admin panel and stores the file_id in Settings.
+
     try:
-        await message.answer_photo(
-            photo="https://placehold.co/1024x512/0b1220/ffffff?text=AniNovaX",
-            caption=text, reply_markup=main_menu_kb(),
+        await message.answer(
+            text,
+            reply_markup=main_menu_kb()
         )
     except Exception:
-        await message.answer(text, reply_markup=main_menu_kb())
+        await message.answer(
+            text,
+            reply_markup=main_menu_kb()
+        )
 
 
 @router.callback_query(F.data == "menu:home")
