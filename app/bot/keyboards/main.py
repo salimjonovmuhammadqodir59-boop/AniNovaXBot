@@ -7,39 +7,39 @@ def main_menu_kb() -> InlineKeyboardMarkup:
     rows = [
         [
             InlineKeyboardButton(
-                text="🔎 Anime izlash",
-                callback_data="menu:search",
+                text="🔎 Anime Izlash",
+                callback_data="menu:search"
             )
         ],
         [
             InlineKeyboardButton(
-                text="🪙 Tanga & Bonus",
-                callback_data="menu:coins",
+                text="🪙 Tangalar",
+                callback_data="menu:coins"
+            ),
+            InlineKeyboardButton(
+                text="🎁 Kunlik bonus",
+                callback_data="menu:bonus"
             )
         ],
         [
             InlineKeyboardButton(
                 text="👥 Do‘st taklif qilish",
-                callback_data="menu:referral",
+                callback_data="menu:referral"
+            ),
+            InlineKeyboardButton(
+                text="🏆 Reyting",
+                callback_data="menu:rating"
             )
         ],
         [
             InlineKeyboardButton(
-                text="💎 VIP",
-                callback_data="menu:vip",
+                text="👤 Profil",
+                callback_data="menu:profile"
+            ),
+            InlineKeyboardButton(
+                text="👑 VIP",
+                callback_data="menu:vip"
             )
-        ],
-        [
-            InlineKeyboardButton(
-                text="📊 Statistika",
-                callback_data="menu:stats",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="⚙️ Sozlamalar",
-                callback_data="menu:settings",
-            ),
         ],
     ]
 
