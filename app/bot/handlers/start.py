@@ -37,11 +37,22 @@ async def cmd_start(message: Message, command: CommandObject, session: AsyncSess
 async def send_main_panel(message: Message, db_user: User) -> None:
     text = greeting_text(db_user)
 
+    banner = FSInputFile(
+        "app/assets/file_000000007b5081f4bd397c3259b937b1.png"
+    )
+
     try:
+        await message.answer_photo(
+            photo=banner,
+            caption=text,
+            reply_markup=main_menu_kb()
+        )
+    except Exception:
         await message.answer(
             text,
             reply_markup=main_menu_kb()
         )
+        
     except Exception:
         await message.answer(
             text,
