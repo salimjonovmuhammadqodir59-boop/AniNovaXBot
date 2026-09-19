@@ -69,5 +69,8 @@ def search_menu_kb() -> InlineKeyboardMarkup:
             )
         ],
         [
-            InlineKeyboardButton(
-                text="👀
+    InlineKeyboardButton(
+        text="👀 Ko‘p ko‘rilganlar",
+        callback_data="list:most_viewed:0",
+    )
+]
