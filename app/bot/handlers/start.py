@@ -52,14 +52,6 @@ async def send_main_panel(message: Message, db_user: User) -> None:
             text,
             reply_markup=main_menu_kb()
         )
-        
-    except Exception:
-        await message.answer(
-            text,
-            reply_markup=main_menu_kb()
-        )
-
-
 @router.callback_query(F.data == "menu:home")
 async def back_to_home(callback: CallbackQuery, db_user: User) -> None:
     text = greeting_text(db_user)
