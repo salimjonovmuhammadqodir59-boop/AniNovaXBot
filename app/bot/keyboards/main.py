@@ -74,7 +74,7 @@ def greeting_text(user: User) -> str:
 
     name = user.full_name or "foydalanuvchi"
 
-        return (
+    return (
         f"👋 Assalomu alaykum, {name}!\n\n"
         f"🎬 <b>AniNovaX Bot</b> ga xush kelibsiz!\n\n"
         f"❤️ Sevimli animelaringizni biz bilan tomosha qiling!\n\n"
