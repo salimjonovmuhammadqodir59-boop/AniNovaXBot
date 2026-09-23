@@ -33,9 +33,11 @@ async def open_search_menu(
 ) -> None:
     await state.clear()
 
-    await callback.message.edit_text(
-        "🔎 <b>Anime Izlash</b>\n\n"
-        "O‘zingizga kerakli anime qidirish usulini tanlang:",
+    await callback.message.edit_caption(
+        caption=(
+            "🔎 <b>Anime Izlash</b>\n\n"
+            "O‘zingizga kerakli anime qidirish usulini tanlang:"
+        ),
         reply_markup=search_menu_kb(),
     )
 
