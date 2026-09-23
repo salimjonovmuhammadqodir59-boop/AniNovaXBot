@@ -26,7 +26,7 @@ LIST_FUNCS = {
 }
 
 
-@router.callback_query(F.data == "search:menu")
+@router.callback_query(F.data == "menu:search")
 async def open_search_menu(
     callback: CallbackQuery,
     state: FSMContext,
@@ -34,8 +34,8 @@ async def open_search_menu(
     await state.clear()
 
     await callback.message.edit_text(
-        "🔎 Anime izlash\n\n"
-        "O'zingizga kerakli anime qidirish usulini tanlang:",
+        "🔎 <b>Anime Izlash</b>\n\n"
+        "O‘zingizga kerakli anime qidirish usulini tanlang:",
         reply_markup=search_menu_kb(),
     )
 
